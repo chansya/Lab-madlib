@@ -1,17 +1,15 @@
-<!doctype html>
-<html>
-<head>
-  <title>Madlib Game</title>
-</head>
-<body>
-    Hi {{ person }}! Would you like to make a madlib?
-    <form action="/game">
-      
-      <input type="radio" name="play" value="yes">
-      <label for="yes">Yes</label>
-      <input type="radio" name="play" value="no">
-      <label for="no">No</label>
-      <button type="submit">Submit</button>
-    </form>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Madlib Game{% endblock %}
+
+{% block content %}
+
+<p>Hi {{ person }}! Would you like to make a madlib?</p>
+<form action="/game">
+  <input type="radio" name="play" value="yes">
+  <label for="yes">Yes</label>
+  <input type="radio" name="play" value="no">
+  <label for="no">No</label>
+  <button type="submit">Submit</button>
+</form>
+{% endblock %}

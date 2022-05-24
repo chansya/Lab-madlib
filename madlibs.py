@@ -3,7 +3,7 @@
 from random import choice
 import re
 
-from flask import Flask, render_template, request
+from flask import Flask, redirect, render_template, request
 
 # "__name__" is a special Python variable for the name of the current module.
 # Flask wants to know this to know what any imported things are relative to.
@@ -62,13 +62,18 @@ def show_madlib_form():
         return render_template("goodbye.html")
 
 
-@app.route("/madlib")
+@app.route("/madlib", methods=["GET","POST"])
 def show_madlib():
-    person = request.args.get("person")
-    noun = request.args.get("noun")
-    color = request.args.get("color")
-    adj = request.args.get("adj")
-    return render_template("madlib.html", person=person, noun=noun, color=color, adj=adj)
+    if request.method=="GET":
+        return redirect("/hello")
+
+    person = request.form.get("person")
+    noun = request.form.get("noun")
+    color = request.form.get("color")
+    adj_list = request.form.getlist("adj")
+    # need .getlist to use multiple checkboxes 
+    
+    return render_template("madlib.html", person=person, noun=noun, color=color, adjs=adj_list)
 
 
 if __name__ == "__main__":

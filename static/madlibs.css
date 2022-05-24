@@ -1,0 +1,27 @@
+form {
+    color: lightblue;
+    font-family: 'Times New Roman', Times, serif; 
+
+}
+
+h1 {
+    color: orchid;
+    font-weight: bold;
+    text-align: center;
+}
+
+p {
+    color: green;
+    text-align: center;
+}
+
+body {
+    background-color: black;
+}
+
+span { 
+    font-style: italic;
+    color: aquamarine;
+
+}
+

@@ -1,43 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Madlib</title>
-</head>
-<body>
-    <form action="/madlib">
-        <div>
-            <label for="person">Enter a name: </label>
-            <input type="text" name="person">
-        </div>
+{% extends 'base.html' %}
 
-        <div>
-            <label for="color">Choose a color: </label>
-            <select name="color">
-                <option value="Green">Green</option>
-                <option value="Purple">Purple</option>
-                <option value="Red">Red</option>
-                <option value="Aqua">Aqua</option>
-            </select>
-        </div>
+{% block title %}Madlib{% endblock %}
 
-        <div>
-            <label for="noun">Type a noun:</label>
-            <input type="text" name ="noun">
-        </div>
+{% block content %}
+<h1>Make A Madlib</h1>
+<form action="/madlib" method="POST">
+    <!-- each form uses one method of request -->
+    <!-- sends a post request to madlibs route -->
+    <div>
+        <label for="person">Enter a name: </label>
+        <input type="text" name="person">
+    </div>
 
-        <div><input type="checkbox" name="adj" value="Perturbed">
+    <div>
+        <label for="color">Choose a color: </label>
+        <select name="color">
+            <option value="green">Green</option>
+            <option value="purple">Purple</option>
+            <option value="red">Red</option>
+            <option value="aqua">Aqua</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="noun">Type a noun:</label>
+        <input type="text" name ="noun">
+    </div>
+
+    <div>
+        <input type="checkbox" name="adj" value="perturbed">
         <label for="adj">"Perturbed"</label>
-        <input type="checkbox" name="adj" value="Jubulant">
+        <input type="checkbox" name="adj" value="jubulant">
         <label for="adj">"Jubulant"</label>
-        <input type="checkbox" name="adj" value="Equisite">
-        <label for="adj">"Equisite"</label>
-        <input type="checkbox" name="adj" value="Wiggly">
-        <label for="adj">"Wiggly"</label></div>
+        <input type="checkbox" name="adj" value="exquisite">
+        <label for="adj">"Exquisite"</label>
+        <input type="checkbox" name="adj" value="wiggly">
+        <label for="adj">"Wiggly"</label>
+    </div>
 
-        <button type="Submit">Get Madlib</button>
-    </form>
-</body>
-</html>
+    <button>Get Madlib</button>
+</form>
+
+{% endblock %}
